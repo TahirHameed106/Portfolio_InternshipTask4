@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import DuskWindow from './DuskWindow'
+import SkyWindow from './SkyWindow'
+import { useTheme } from '../context/ThemeContext'
 
 const roles = ['MERN Stack Developer', 'Backend-Leaning Engineer', 'Software Engineering Student']
 
@@ -34,6 +35,7 @@ const useTypewriter = (words) => {
 
 const Hero = () => {
   const typed = useTypewriter(roles)
+  const { isDay } = useTheme()
 
   return (
     <section id="top" className="relative min-h-screen pt-28 pb-16 px-6 md:px-8">
@@ -45,7 +47,9 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="field-note px-8 py-10 md:px-10 md:py-12 order-2 md:order-1"
         >
-          <p className="eyebrow mb-4">Field Note — Entry 01, Dusk</p>
+          <p className="eyebrow mb-4">
+            Field Note — Entry 01, {isDay ? 'Daybreak' : 'Dusk'}
+          </p>
           <h1 className="font-display text-4xl md:text-5xl leading-[1.05] mb-4">
             Hi, I'm <span className="italic text-rust">Tahir Hameed.</span>
           </h1>
@@ -76,14 +80,19 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* The lit window */}
+        {/* The lit window — click the sun/moon to shift time of day */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="order-1 md:order-2 h-[360px] md:h-[480px] shadow-lantern rounded-lg"
+          className="order-1 md:order-2"
         >
-          <DuskWindow />
+          <div className="h-[360px] md:h-[480px] shadow-lantern rounded-lg">
+            <SkyWindow />
+          </div>
+          <p className="mt-3 text-center font-mono text-[11px] tracking-[0.15em] uppercase text-ink-faint">
+            click the {isDay ? 'sun' : 'moon'} to change the hour
+          </p>
         </motion.div>
       </div>
 
@@ -91,7 +100,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.2em] uppercase text-parchment-faint"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.2em] uppercase text-ink-faint"
       >
         scroll ↓
       </motion.div>

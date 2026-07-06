@@ -43,11 +43,11 @@ const Skills = () => {
   const [ref, visible] = useReveal({ threshold: 0.15 })
 
   return (
-    <section id="skills" className="relative px-6 md:px-8 py-24 bg-pine-light/40">
+    <section id="skills" className="relative px-6 md:px-8 py-24 bg-panel">
       <div className="max-w-6xl mx-auto">
         <p className="eyebrow mb-3">Field Note — Toolkit</p>
-        <h2 className="font-display text-3xl md:text-4xl text-parchment mb-14 max-w-xl">
-          Tools I reach for <span className="italic text-ember-bright">without thinking twice.</span>
+        <h2 className="font-display text-3xl md:text-4xl text-ink mb-14 max-w-xl">
+          Tools I reach for <span className="italic text-accent">without thinking twice.</span>
         </h2>
 
         <div ref={ref} className="grid sm:grid-cols-2 gap-6">

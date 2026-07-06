@@ -1,3 +1,29 @@
+:root {
+  /* "Field Notes at Dusk" — night defaults */
+  --bg: #141F19;
+  --bg-deep: #0D1611;
+  --panel: rgba(28, 42, 34, 0.55);
+  --fg: #EFE6D3;
+  --fg-dim: #CFC4AC;
+  --fg-faint: #8C9184;
+  --border: rgba(94, 122, 91, 0.35);
+  --accent: #F2A85C;
+  --accent-dim: #A9642F;
+}
+
+.theme-day {
+  /* "Field Notes at Dawn" — the toggled morning palette */
+  --bg: #F3E8D0;
+  --bg-deep: #E4D2A8;
+  --panel: rgba(255, 252, 244, 0.6);
+  --fg: #2C2413;
+  --fg-dim: #5B4A2E;
+  --fg-faint: #8A7A54;
+  --border: rgba(140, 110, 60, 0.3);
+  --accent: #C9793D;
+  --accent-dim: #8C4A24;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +33,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-pine text-parchment font-body overflow-x-hidden;
+    @apply font-body overflow-x-hidden;
   }
   ::selection {
     @apply bg-ember/40 text-parchment;
@@ -16,13 +42,13 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-pine-deep;
+    background: var(--bg-deep);
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-moss rounded-full;
   }
   :focus-visible {
-    outline: 2px solid theme('colors.ember.bright');
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
 }
@@ -45,8 +71,17 @@
     transform: rotate(-3deg);
   }
   .eyebrow {
-    @apply font-mono text-xs tracking-[0.2em] uppercase text-ember-bright/90;
+    @apply font-mono text-xs tracking-[0.2em] uppercase;
+    color: var(--accent);
   }
+  .text-ink { color: var(--fg); transition: color 1.1s ease; }
+  .text-ink-dim { color: var(--fg-dim); transition: color 1.1s ease; }
+  .text-ink-faint { color: var(--fg-faint); transition: color 1.1s ease; }
+  .text-accent { color: var(--accent); transition: color 1.1s ease; }
+  .bg-surface { background-color: var(--bg); transition: background-color 1.1s ease; }
+  .bg-surface-deep { background-color: var(--bg-deep); transition: background-color 1.1s ease; }
+  .bg-panel { background-color: var(--panel); transition: background-color 1.1s ease; }
+  .border-subtle { border-color: var(--border); transition: border-color 1.1s ease; }
 }
 
 @media (prefers-reduced-motion: reduce) {
