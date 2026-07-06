@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-pine text-parchment font-body overflow-x-hidden;
+  }
+  ::selection {
+    @apply bg-ember/40 text-parchment;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-pine-deep;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-moss rounded-full;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.ember.bright');
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Torn / pinned journal-card edge — the recurring "field note" motif */
+  .field-note {
+    @apply relative bg-parchment text-pine-deep rounded-sm;
+    box-shadow: 0 18px 40px -12px rgba(0,0,0,0.55);
+  }
+  .field-note::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 28px;
+    width: 46px;
+    height: 20px;
+    background: rgba(217,139,74,0.55);
+    border: 1px solid rgba(217,139,74,0.7);
+    transform: rotate(-3deg);
+  }
+  .eyebrow {
+    @apply font-mono text-xs tracking-[0.2em] uppercase text-ember-bright/90;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
