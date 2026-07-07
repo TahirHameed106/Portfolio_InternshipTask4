@@ -1,26 +1,27 @@
 import React from 'react'
 import Navbar from './components/Navbar'
+import ScrollTrace from './components/ScrollTrace'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Services from './components/Services'
-import SoundToggle from './components/SoundToggle'
-import { ThemeProvider } from './context/ThemeContext'
+import Projects from './components/Projects'
+import Education from './components/Education'
+import Testimonials from './components/Testimonials'
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="relative">
-        {/* Fine paper-grain texture over the whole page */}
-        <div className="pointer-events-none fixed inset-0 bg-grain z-40 mix-blend-overlay" />
-        <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <Services />
-        <SoundToggle />
-      </div>
-    </ThemeProvider>
+    <div className="relative">
+      <ScrollTrace />
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Services />
+      <Projects />
+      <Education />
+      <Testimonials />
+    </div>
   )
 }
 

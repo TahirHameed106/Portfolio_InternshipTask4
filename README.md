@@ -1,12 +1,13 @@
-# Tahir Hameed — Portfolio (Day 1: Home Page)
+# Tahir Hameed — Portfolio (Day 1 + Day 2)
 
-**Concept — "Field Notes at Dusk / Dawn":** the page reads like a naturalist's journal.
-The hero is a window with a clickable moon — click it and the whole site slowly morphs:
-moon → sun, dusk forest → morning mountains, fireflies → birds, and every color on the
-page (background, text, panels, accents) crossfades to a warm daytime palette. The About
-section is a hand-drawn dotted trail map with pinned waypoints instead of a plain
-timeline — a small ember of light travels along the path as you scroll. All icons are
-custom-drawn line art, no emoji.
+**Concept — "Sheet 01 — Systems."** A technical-drawing aesthetic: the site reads like a
+set of engineering drawings. Full-bleed hero with no cards, sections labeled as numbered
+sheets, projects presented as spec sheets, and one persistent circuit-trace line running
+down the page that lights up as you scroll — a functional scroll indicator doubling as
+the site's signature visual. Type is IBM Plex Sans + IBM Plex Mono (one family, built for
+technical documents). Palette: near-black blueprint ink, pale blue-white linework, a
+single safety-orange signal color for actions/status. No icon-grid, no emoji, no leftover
+decoration from earlier drafts.
 
 ## Run it
 
@@ -17,39 +18,41 @@ npm run dev
 
 Then open the local URL Vite prints (usually http://localhost:5173).
 
-## What's included (Day 1 scope)
+## What's included
 
+**Day 1**
 - Project setup (Vite + React + Tailwind + Framer Motion)
-- Responsive navbar (theme-aware, custom hamburger icon)
-- Hero: clickable sun/moon window that drives the whole site's day/night theme
-- About: scroll-driven dotted journey map with waypoint pins
-- Skills: toolkit cards with animated proficiency bars
-- Services: custom-drawn icon cards (no emoji)
-- Ambient sound toggle with a drawn flame icon (needs an audio file, see below)
+- Responsive navbar
+- Hero — full-bleed title block, animated schematic backdrop, typewriter role text
+- About (Sheet 02 — System) — spec-list facts + clean 4-entry timeline
+- Skills (Sheet 03 — Stack) — categorized, tick-gauge proficiency (no progress-bar cards)
+- Services (Sheet 04) — spec-sheet list, no icon cards
 
-## How the day/night toggle works
+**Day 2**
+- Projects (Sheet 05 — Case Studies) — 6 dummy projects, each with tags, a brief, and a
+  named outcome, laid out as alternating spec-sheet rows
+- Education & Experience (Sheet 06) — degree info, coursework tags, and a working
+  **Download CV** button
+- Testimonials (Sheet 07) — 3 dummy quotes, clearly marked as placeholders
 
-`src/context/ThemeContext.jsx` holds a single `isDay` boolean. Clicking the sun/moon in
-`SkyWindow.jsx` flips it. Every themed color in the site (background, panels, text,
-borders, accent) is a CSS variable defined in `src/index.css` under `:root` (night) and
-`.theme-day` (day), so the whole page crossfades together over ~1.4s. If you want to
-change the palette, edit those two variable blocks — nothing else needs to change.
+**Persistent element**
+- `ScrollTrace.jsx` — a vertical circuit-trace on desktop (top progress bar on mobile)
+  that tracks which sheet you're on across the whole site
 
 ## Before you submit
 
-1. **Photo:** if you want a real photo instead of the illustrated window as your hero
-   visual, add it to `public/images/` and I can wire it in alongside the window.
-2. **Ambient sound:** drop a royalty-free looping ambience track (rain + forest, a few
-   free ones exist on mixkit.co or freesound.org — check the license) at
-   `public/audio/dusk-ambience.mp3`. The flame button plays it automatically once the
-   file exists.
-3. **Résumé:** add your real PDF at `public/resume.pdf` — the navbar's "Résumé" button
-   already links there.
-4. Double-check the About/journey-map copy still matches how you'd describe yourself.
+1. **Résumé:** add your real PDF at `public/resume.pdf` — both the navbar's "Résumé"
+   button and the Education section's "Download CV" button link there.
+2. **Repo/Live links:** `Projects.jsx` has placeholder `#` links under "Repo →" / "Live →"
+   for each project — point those at your actual GitHub repos and deployed URLs.
+3. **Testimonials:** these are explicitly dummy per the assignment brief — swap in real
+   quotes later if you get them, or leave as-is since the task allows placeholders.
+4. Skim all copy (About facts, Education, Project briefs) to make sure it still matches
+   how you'd describe yourself.
 
-## Next (Day 2 / Day 3, not built yet)
+## Not built yet (Day 3)
 
-Projects grid (6+ dummy projects), resume/education timeline, testimonials, download-CV
-button, contact section, footer with social links, contact form UI — all in the same
-day/night-aware visual language. Say the word and I'll build those next.
+Contact section, footer with social links, contact form UI, final responsive polish and
+bug pass. Say the word and I'll build those next in the same visual language.
+
 

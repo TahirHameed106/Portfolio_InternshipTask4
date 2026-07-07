@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import SkyWindow from './SkyWindow'
-import { useTheme } from '../context/ThemeContext'
 
-const roles = ['MERN Stack Developer', 'Backend-Leaning Engineer', 'Software Engineering Student']
+const roles = ['MERN Stack Developer', 'Backend-Leaning Engineer', 'Systems-Minded Student']
 
 const useTypewriter = (words) => {
   const [index, setIndex] = useState(0)
@@ -12,12 +10,12 @@ const useTypewriter = (words) => {
 
   useEffect(() => {
     const current = words[index % words.length]
-    const speed = deleting ? 35 : 65
+    const speed = deleting ? 30 : 60
     const t = setTimeout(() => {
       if (!deleting) {
         const next = current.slice(0, text.length + 1)
         setText(next)
-        if (next === current) setTimeout(() => setDeleting(true), 1400)
+        if (next === current) setTimeout(() => setDeleting(true), 1300)
       } else {
         const next = current.slice(0, text.length - 1)
         setText(next)
@@ -33,77 +31,106 @@ const useTypewriter = (words) => {
   return text
 }
 
+const SchematicBackdrop = () => (
+  <svg
+    className="absolute inset-0 w-full h-full opacity-40"
+    viewBox="0 0 1000 700"
+    preserveAspectRatio="xMidYMid slice"
+    fill="none"
+  >
+    <g stroke="#4A5A70" strokeWidth="1.2">
+      <path d="M0 120 H240 V260 H520" />
+      <path d="M1000 80 H760 V220 H480" />
+      <path d="M0 560 H200 V420 H460" />
+      <path d="M1000 620 H820 V480 H560" />
+    </g>
+    <g stroke="#FF6A2B" strokeWidth="1.4" strokeDasharray="6 10" className="animate-pulse-line">
+      <path d="M0 120 H240 V260 H520" />
+      <path d="M1000 620 H820 V480 H560" />
+    </g>
+    {[
+      [240, 120], [520, 260], [760, 80], [480, 220],
+      [200, 560], [460, 420], [820, 620], [560, 480],
+    ].map(([cx, cy], i) => (
+      <circle key={i} cx={cx} cy={cy} r="4" fill="#0A121F" stroke="#8695A8" strokeWidth="1.2" />
+    ))}
+  </svg>
+)
+
 const Hero = () => {
   const typed = useTypewriter(roles)
-  const { isDay } = useTheme()
 
   return (
-    <section id="top" className="relative min-h-screen pt-28 pb-16 px-6 md:px-8">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-        {/* Journal entry card */}
+    <section id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-blueprint bg-grid">
+      <SchematicBackdrop />
+
+      <div className="relative max-w-6xl mx-auto w-full px-6 md:px-10 pt-24 pb-16">
+        {/* Title block */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="field-note px-8 py-10 md:px-10 md:py-12 order-2 md:order-1"
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap gap-x-10 gap-y-2 mb-10 font-mono text-[11px] tracking-[0.2em] uppercase text-line-dim"
         >
-          <p className="eyebrow mb-4">
-            Field Note — Entry 01, {isDay ? 'Daybreak' : 'Dusk'}
-          </p>
-          <h1 className="font-display text-4xl md:text-5xl leading-[1.05] mb-4">
-            Hi, I'm <span className="italic text-rust">Tahir Hameed.</span>
-          </h1>
-          <div className="h-8 mb-6">
-            <span className="font-mono text-sm md:text-base text-moss-dim">
-              {typed}
-              <span className="inline-block w-[2px] h-4 bg-rust ml-1 align-middle animate-pulse" />
-            </span>
-          </div>
-          <p className="text-pine-deep/80 leading-relaxed mb-8 max-w-md">
-            Software Engineering student at Bahria University Karachi Campus, building
-            full-stack applications end to end — from REST APIs and databases to interfaces
-            people actually enjoy using. Currently looking for an internship where I can learn fast.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#services"
-              className="px-6 py-3 rounded-full bg-rust text-parchment font-mono text-xs tracking-[0.12em] uppercase hover:bg-rust/90 transition-colors"
-            >
-              What I Do
-            </a>
-            <a
-              href="#skills"
-              className="px-6 py-3 rounded-full border border-pine-deep/25 text-pine-deep font-mono text-xs tracking-[0.12em] uppercase hover:border-pine-deep/60 transition-colors"
-            >
-              My Toolkit
-            </a>
-          </div>
+          <span>Project — Tahir Hameed</span>
+          <span>Sheet — 01 / 05</span>
+          <span className="text-stamp">Status — Open for Internship</span>
         </motion.div>
 
-        {/* The lit window — click the sun/moon to shift time of day */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="order-1 md:order-2"
+        <motion.h1
+          initial={{ opacity: 0, y: 26 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          className="font-sans font-bold leading-[0.92] tracking-tight text-line text-[15vw] sm:text-[11vw] md:text-[7.5vw] lg:text-[6.2rem]"
         >
-          <div className="h-[360px] md:h-[480px] shadow-lantern rounded-lg">
-            <SkyWindow />
-          </div>
-          <p className="mt-3 text-center font-mono text-[11px] tracking-[0.15em] uppercase text-ink-faint">
-            click the {isDay ? 'sun' : 'moon'} to change the hour
-          </p>
+          Tahir
+          <br />
+          Hameed.
+        </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-6 h-7"
+        >
+          <span className="font-mono text-sm md:text-base text-signal">
+            {typed}
+            <span className="inline-block w-[2px] h-4 bg-signal ml-1 align-middle animate-blink" />
+          </span>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="mt-6 max-w-lg text-line-dim leading-relaxed"
+        >
+          Software Engineering student at Bahria University Karachi Campus. I build
+          full-stack systems end to end — APIs, databases, and the interfaces on top of
+          them — and I'm looking for an internship that will put that to real use.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.75, duration: 0.6 }}
+          className="mt-9 flex flex-wrap items-center gap-6"
+        >
+          <a
+            href="#projects"
+            className="px-6 py-3 bg-signal text-ink-deep font-mono text-xs tracking-[0.15em] uppercase font-semibold hover:bg-signal-dim transition-colors"
+          >
+            View Case Studies
+          </a>
+          <a
+            href="#education"
+            className="font-mono text-xs tracking-[0.15em] uppercase text-line-dim hover:text-line transition-colors"
+          >
+            Download CV →
+          </a>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.2em] uppercase text-ink-faint"
-      >
-        scroll ↓
-      </motion.div>
     </section>
   )
 }

@@ -5,74 +5,77 @@ const categories = [
   {
     title: 'Frontend',
     items: [
-      { name: 'React.js', level: 78 },
-      { name: 'Next.js', level: 60 },
-      { name: 'Tailwind CSS', level: 82 },
-      { name: 'JavaScript (ES6+)', level: 80 },
+      { name: 'React.js', level: 8 },
+      { name: 'Next.js', level: 6 },
+      { name: 'Tailwind CSS', level: 8 },
+      { name: 'JavaScript (ES6+)', level: 8 },
     ],
   },
   {
     title: 'Backend',
     items: [
-      { name: 'Node.js / Express', level: 78 },
-      { name: 'REST API Design', level: 80 },
-      { name: 'JWT Auth', level: 70 },
-      { name: 'C# / .NET Basics', level: 60 },
+      { name: 'Node.js / Express', level: 8 },
+      { name: 'REST API Design', level: 8 },
+      { name: 'JWT Auth', level: 7 },
+      { name: 'C# / .NET Basics', level: 6 },
     ],
   },
   {
     title: 'Data & Cloud',
     items: [
-      { name: 'MongoDB', level: 72 },
-      { name: 'MySQL', level: 62 },
-      { name: 'Cloud Fundamentals', level: 65 },
+      { name: 'MongoDB', level: 7 },
+      { name: 'MySQL', level: 6 },
+      { name: 'Cloud Fundamentals', level: 6 },
     ],
   },
   {
     title: 'Tooling',
     items: [
-      { name: 'Git / GitHub', level: 85 },
-      { name: 'Postman', level: 80 },
-      { name: 'Vercel', level: 75 },
-      { name: 'Docker (basics)', level: 50 },
+      { name: 'Git / GitHub', level: 9 },
+      { name: 'Postman', level: 8 },
+      { name: 'Vercel', level: 7 },
+      { name: 'Docker (basics)', level: 5 },
     ],
   },
 ]
 
+const TickGauge = ({ level, active }) => (
+  <div className="flex gap-[3px]">
+    {Array.from({ length: 10 }).map((_, i) => (
+      <span
+        key={i}
+        className="w-[3px] h-3 transition-colors duration-700"
+        style={{
+          backgroundColor: active && i < level ? '#FF6A2B' : 'rgba(134,149,168,0.25)',
+          transitionDelay: `${i * 30}ms`,
+        }}
+      />
+    ))}
+  </div>
+)
+
 const Skills = () => {
-  const [ref, visible] = useReveal({ threshold: 0.15 })
+  const [ref, visible] = useReveal({ threshold: 0.1 })
 
   return (
-    <section id="skills" className="relative px-6 md:px-8 py-24 bg-panel">
+    <section id="skills" className="relative px-6 md:px-10 py-28 md:py-36 bg-ink-raised/40">
       <div className="max-w-6xl mx-auto">
-        <p className="eyebrow mb-3">Field Note — Toolkit</p>
-        <h2 className="font-display text-3xl md:text-4xl text-ink mb-14 max-w-xl">
-          Tools I reach for <span className="italic text-accent">without thinking twice.</span>
+        <p className="sheet-label mb-6">Sheet 03 — Stack</p>
+        <h2 className="font-sans text-2xl md:text-3xl text-line mb-16 max-w-xl">
+          Tools measured, not just listed.
         </h2>
 
-        <div ref={ref} className="grid sm:grid-cols-2 gap-6">
-          {categories.map((cat, ci) => (
-            <div
-              key={cat.title}
-              className={`field-note p-6 md:p-8 transition-all duration-700 ${
-                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${ci * 100}ms` }}
-            >
-              <h3 className="font-display italic text-xl text-rust mb-5">{cat.title}</h3>
-              <div className="space-y-4">
+        <div ref={ref} className="space-y-14">
+          {categories.map((cat) => (
+            <div key={cat.title} className="grid md:grid-cols-12 gap-4 md:gap-10 hairline pt-8 first:border-t-0 first:pt-0">
+              <h3 className="md:col-span-3 font-mono text-xs tracking-[0.2em] uppercase text-line-faint">
+                {cat.title}
+              </h3>
+              <div className="md:col-span-9 grid sm:grid-cols-2 gap-x-8 gap-y-5">
                 {cat.items.map((s) => (
-                  <div key={s.name}>
-                    <div className="flex justify-between text-xs font-mono uppercase tracking-wide mb-1 text-pine-deep/70">
-                      <span>{s.name}</span>
-                      <span>{s.level}%</span>
-                    </div>
-                    <div className="h-1.5 bg-pine-deep/10 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-rust rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: visible ? `${s.level}%` : '0%' }}
-                      />
-                    </div>
+                  <div key={s.name} className="flex items-center justify-between gap-4">
+                    <span className="text-sm text-line">{s.name}</span>
+                    <TickGauge level={s.level} active={visible} />
                   </div>
                 ))}
               </div>
