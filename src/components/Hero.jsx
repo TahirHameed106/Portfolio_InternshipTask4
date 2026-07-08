@@ -73,7 +73,7 @@ const Hero = () => {
           className="flex flex-wrap gap-x-10 gap-y-2 mb-10 font-mono text-[11px] tracking-[0.2em] uppercase text-line-dim"
         >
           <span>Project — Tahir Hameed</span>
-          <span>Sheet — 01 / 05</span>
+          <span>Sheet — 01 / 08</span>
           <span className="text-stamp">Status — Open for Internship</span>
         </motion.div>
 

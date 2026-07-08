@@ -8,6 +8,7 @@ const sections = [
   { id: 'projects', label: 'SHEET 05' },
   { id: 'education', label: 'SHEET 06' },
   { id: 'testimonials', label: 'SHEET 07' },
+  { id: 'contact', label: 'SHEET 08' },
 ]
 
 const ScrollTrace = () => {

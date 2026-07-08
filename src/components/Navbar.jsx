@@ -7,6 +7,7 @@ const links = [
   { label: 'Services', id: 'services' },
   { label: 'Work', id: 'projects' },
   { label: 'Education', id: 'education' },
+  { label: 'Contact', id: 'contact' },
 ]
 
 const Navbar = () => {
