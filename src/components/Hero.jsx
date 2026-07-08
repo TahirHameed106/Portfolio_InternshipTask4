@@ -74,7 +74,7 @@ const Hero = () => {
         >
           <span>Project — Tahir Hameed</span>
           <span>Sheet — 01 / 08</span>
-          <span className="text-stamp">Status — Open for Internship</span>
+          <span className="text-stamp">Status — Open for Internships and Volunteer Opportunities for limited time.</span>
         </motion.div>
 
         <motion.h1
