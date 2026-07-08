@@ -7,7 +7,7 @@ const fields = [
 ]
 
 const channels = [
-  { k: 'Email', v: 'tahir.hameed@example.com', href: 'mailto:tahir.hameed@example.com' },
+  { k: 'Email', v: 'tahirdev47@example.com', href: 'mailto:tahirdev47@example.com' },
   { k: 'Location', v: 'Karachi, Pakistan', href: null },
   { k: 'Response', v: 'Within 24 hours', href: null },
 ]
