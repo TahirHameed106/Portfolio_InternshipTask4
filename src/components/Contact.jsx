@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 
 const fields = [
-  { id: 'name', label: 'Name', type: 'text', placeholder: 'Jane Doe' },
-  { id: 'email', label: 'Email', type: 'email', placeholder: 'jane@company.com' },
+  { id: 'name', label: 'Name', type: 'text', placeholder: 'Ahab tahir' },
+  { id: 'email', label: 'Email', type: 'email', placeholder: 'AT.Services@company.com' },
 ]
 
 const channels = [
