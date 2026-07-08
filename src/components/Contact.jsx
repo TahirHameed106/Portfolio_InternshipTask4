@@ -130,7 +130,7 @@ const Contact = () => {
             </dl>
 
             <p className="text-sm text-line-dim leading-relaxed">
-              Currently looking for a Web Development internship. Open to remote,
+              Currently looking for a Web Development Projects. Open to remote,
               hybrid, or on-site — whatever gets me shipping real code fastest.
             </p>
           </div>
