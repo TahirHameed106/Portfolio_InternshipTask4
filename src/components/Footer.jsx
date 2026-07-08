@@ -1,10 +1,10 @@
 import React from 'react'
 
 const socials = [
-  { label: 'GitHub', href: 'https://github.com/' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/' },
-  { label: 'Twitter / X', href: 'https://twitter.com/' },
-  { label: 'Email', href: 'mailto:tahir.hameed@example.com' },
+  { label: 'GitHub', href: 'https://github.com/TahirHameed106' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/tahir-se' },
+  { label: 'X', href: 'https://twitter.com/' },
+  { label: 'Email', href: 'mailto:tahirdev47@example.com' },
 ]
 
 const sections = [
