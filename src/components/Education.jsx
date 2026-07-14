@@ -27,7 +27,7 @@ const Education = () => {
             <div className="hairline pt-6 first:border-t-0 first:pt-0">
               <p className="font-mono text-xs tracking-[0.15em] uppercase text-signal mb-2">2023 — Present</p>
               <h3 className="font-sans text-xl text-line mb-1">BS Software Engineering</h3>
-              <p className="text-sm text-line-dim mb-4">Bahria University, Karachi Campus — 7th Semester</p>
+              <p className="text-sm text-line-dim mb-4">Bahria University, Karachi Campus — 6th Semester</p>
               <div className="flex flex-wrap gap-2">
                 {coursework.map((c) => (
                   <span key={c} className="tag">{c}</span>

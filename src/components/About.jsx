@@ -13,7 +13,7 @@ const timeline = [
   { year: '2023', note: 'Began BS Software Engineering at Bahria University Karachi Campus.' },
   { year: '2024', note: 'Went deep on the MERN stack — Node, Express, MongoDB, React.' },
   { year: '2025', note: 'Shipped 5+ full-stack projects; started studying cloud architecture.' },
-  { year: '2026', note: 'Sixth semester, hunting for an internship and Volunteering opportunities worth learning from.' },
+  { year: '2026', note: 'Sixth semester, hunting for an internship worth learning from.' },
 ]
 
 const About = () => {

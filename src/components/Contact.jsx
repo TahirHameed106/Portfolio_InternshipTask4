@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 
 const fields = [
-  { id: 'name', label: 'Name', type: 'text', placeholder: 'Ahab tahir' },
-  { id: 'email', label: 'Email', type: 'email', placeholder: 'AT.Services@company.com' },
+  { id: 'name', label: 'Name', type: 'text', placeholder: 'Jane Doe' },
+  { id: 'email', label: 'Email', type: 'email', placeholder: 'jane@company.com' },
 ]
 
 const channels = [
-  { k: 'Email', v: 'tahirdev47@example.com', href: 'mailto:tahirdev47@example.com' },
+  { k: 'Email', v: 'tahir.hameed@example.com', href: 'mailto:tahir.hameed@example.com' },
   { k: 'Location', v: 'Karachi, Pakistan', href: null },
   { k: 'Response', v: 'Within 24 hours', href: null },
 ]
@@ -130,7 +130,7 @@ const Contact = () => {
             </dl>
 
             <p className="text-sm text-line-dim leading-relaxed">
-              Currently looking for a Web Development Projects. Open to remote,
+              Currently looking for a Web Development internship. Open to remote,
               hybrid, or on-site — whatever gets me shipping real code fastest.
             </p>
           </div>
